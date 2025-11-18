@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="it.unibo.functional.TestFunctionalLibrary" tests="3" skipped="0" failures="3" errors="0" timestamp="2025-11-18T10:43:21.438Z" hostname="LAB31-01-04" time="0.059">
+  <properties/>
+  <testcase name="testFlatten()" classname="it.unibo.functional.TestFunctionalLibrary" time="0.039">
+    <failure message="org.opentest4j.AssertionFailedError: expected: &lt;[Lorem, Lorem, Lorem, ipsum, ipsum, ipsum, dolor, dolor, dolor, sit, sit, sit, amet, amet, amet, consectetur, consectetur, consectetur, adipiscing, adipiscing, adipiscing, elit, elit, elit, sed, sed, sed, do, do, do, eiusmod, eiusmod, eiusmod, tempor, tempor, tempor, incididunt, incididunt, incididunt]&gt; but was: &lt;null&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;[Lorem, Lorem, Lorem, ipsum, ipsum, ipsum, dolor, dolor, dolor, sit, sit, sit, amet, amet, amet, consectetur, consectetur, consectetur, adipiscing, adipiscing, adipiscing, elit, elit, elit, sed, sed, sed, do, do, do, eiusmod, eiusmod, eiusmod, tempor, tempor, tempor, incididunt, incididunt, incididunt]&gt; but was: &lt;null&gt;
+	at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:158)
+	at app//org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:139)
+	at app//org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:201)
+	at app//org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:184)
+	at app//org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:179)
+	at app//org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1188)
+	at app//it.unibo.functional.TestFunctionalLibrary.testFlatten(TestFunctionalLibrary.java:48)
+</failure>
+  </testcase>
+  <testcase name="testSelectAndReject()" classname="it.unibo.functional.TestFunctionalLibrary" time="0.015">
+    <failure message="org.opentest4j.AssertionFailedError: expected: &lt;[sit, amet, adipiscing, sed]&gt; but was: &lt;null&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;[sit, amet, adipiscing, sed]&gt; but was: &lt;null&gt;
+	at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:158)
+	at app//org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:139)
+	at app//org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:201)
+	at app//org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:184)
+	at app//org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:179)
+	at app//org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1188)
+	at app//it.unibo.functional.TestFunctionalLibrary.testSelectAndReject(TestFunctionalLibrary.java:59)
+</failure>
+  </testcase>
+  <testcase name="testTransform()" classname="it.unibo.functional.TestFunctionalLibrary" time="0.004">
+    <failure message="org.opentest4j.AssertionFailedError: expected: &lt;[5, 5, 5, 3, 4, 11, 10, 4, 3, 2, 7, 6, 10]&gt; but was: &lt;null&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;[5, 5, 5, 3, 4, 11, 10, 4, 3, 2, 7, 6, 10]&gt; but was: &lt;null&gt;
+	at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:158)
+	at app//org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:139)
+	at app//org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:201)
+	at app//org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:184)
+	at app//org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:179)
+	at app//org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1188)
+	at app//it.unibo.functional.TestFunctionalLibrary.testTransform(TestFunctionalLibrary.java:26)
+</failure>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
