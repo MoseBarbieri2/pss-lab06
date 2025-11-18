@@ -48,8 +48,8 @@ class TestStrictBankAccount {
         bankAccount.deposit(bankAccount.getAccountHolder().getUserID(), AMOUNT);
         assertEquals(AMOUNT, bankAccount.getBalance());
         assertEquals(1, bankAccount.getTransactionsCount());
-        bankAccount.chargeManagementFees(bankAccount.getAccountHolder().getUserID());
         final double feeAmount = MANAGEMENT_FEE + bankAccount.getTransactionsCount() * TRANSACTION_FEE;
+        bankAccount.chargeManagementFees(bankAccount.getAccountHolder().getUserID());
         assertEquals(AMOUNT - feeAmount, bankAccount.getBalance());
     }
 
@@ -58,11 +58,11 @@ class TestStrictBankAccount {
      */
     @Test
     public void testNegativeWithdraw() {
+        assertEquals(0.0, bankAccount.getBalance());
         try {
             bankAccount.withdraw(bankAccount.getAccountHolder().getUserID(), -1);
-            assertNotEquals(0.0, bankAccount.getBalance());
-        } catch (final IllegalArgumentException e) {
-            fail("You can't withdraw negative amount");
+        } catch ( final IllegalArgumentException e) {
+            assertEquals(0.0, bankAccount.getBalance());
         }
     }
 
