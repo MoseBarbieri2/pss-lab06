@@ -61,6 +61,8 @@ class TestStrictBankAccount {
         assertEquals(0.0, bankAccount.getBalance());
         try {
             bankAccount.withdraw(bankAccount.getAccountHolder().getUserID(), -1);
+            assertEquals(0, bankAccount.getTransactionsCount());
+            fail("You can't withdraw a bank account");
         } catch ( final IllegalArgumentException e) {
             assertEquals(0.0, bankAccount.getBalance());
         }
@@ -73,6 +75,7 @@ class TestStrictBankAccount {
     public void testWithdrawingTooMuch() {
         try {
             bankAccount.withdraw(bankAccount.getAccountHolder().getUserID(), 1);
+            assertEquals(0, bankAccount.getTransactionsCount());
             fail("You can't withdraw more than your amount");
         } catch (final IllegalArgumentException e){
             assertEquals(0.0, bankAccount.getBalance());
