@@ -9,8 +9,7 @@ import java.lang.instrument.UnmodifiableClassException;
 
 import static it.unibo.bank.impl.SimpleBankAccount.MANAGEMENT_FEE;
 import static it.unibo.bank.impl.StrictBankAccount.TRANSACTION_FEE;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Test class for the {@link StrictBankAccount} class.
@@ -28,7 +27,7 @@ class TestStrictBankAccount {
     @BeforeEach
     public void setUp() {
         this.mRossi = new AccountHolder("Mario", "Rossi", 1);
-        this.bankAccount = new SimpleBankAccount(mRossi, 0.0);
+        this.bankAccount = new StrictBankAccount(mRossi, 0.0);
     }
 
     /**
@@ -48,8 +47,9 @@ class TestStrictBankAccount {
     public void testManagementFees() {
         bankAccount.deposit(bankAccount.getAccountHolder().getUserID(), AMOUNT);
         assertEquals(AMOUNT, bankAccount.getBalance());
+        assertEquals(1, bankAccount.getTransactionsCount());
         bankAccount.chargeManagementFees(bankAccount.getAccountHolder().getUserID());
-        final double feeAmount = MANAGEMENT_FEE + bankAccount.getTransactionsCount()* TRANSACTION_FEE;
+        final double feeAmount = MANAGEMENT_FEE + bankAccount.getTransactionsCount() * TRANSACTION_FEE;
         assertEquals(AMOUNT - feeAmount, bankAccount.getBalance());
     }
 
@@ -58,13 +58,12 @@ class TestStrictBankAccount {
      */
     @Test
     public void testNegativeWithdraw() {
-        bankAccount.deposit(bankAccount.getAccountHolder().getUserID(), AMOUNT);
         try {
             bankAccount.withdraw(bankAccount.getAccountHolder().getUserID(), -1);
-        }catch (final IllegalArgumentException e){
+            assertNotEquals(0.0, bankAccount.getBalance());
+        } catch (final IllegalArgumentException e) {
             fail("You can't withdraw negative amount");
         }
-
     }
 
     /**
@@ -72,11 +71,11 @@ class TestStrictBankAccount {
      */
     @Test
     public void testWithdrawingTooMuch() {
-        bankAccount.deposit(bankAccount.getAccountHolder().getUserID(), AMOUNT);
         try {
-            bankAccount.withdraw(bankAccount.getAccountHolder().getUserID(), AMOUNT + 1);
-        }catch (final IllegalArgumentException e){
+            bankAccount.withdraw(bankAccount.getAccountHolder().getUserID(), 1);
             fail("You can't withdraw more than your amount");
+        } catch (final IllegalArgumentException e){
+            assertEquals(0.0, bankAccount.getBalance());
         }
     }
 }
